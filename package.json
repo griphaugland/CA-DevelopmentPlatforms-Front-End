@@ -1,12 +1,19 @@
 {
   "name": "ca-developmentplatforms-front-end",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "node-sass --watch sass/main.scss css/main.css"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.70.0"
+  },
+  "description": "",
+  "dependencies": {
+    "node-sass": "^9.0.0"
+  }
 }
