@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registrer deg</title>
+    <link rel="stylesheet" href="../../css/main.css" />
+    <script src="../../js/security.js" type="module"></script>
+  </head>
+  <body class="auth">
+    <header></header>
+    <main>
+      <div class="auth-current">
+        <form action="" method="post" id="registrationForm">
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Epost"
+            required
+          />
+          <input
+            type="text"
+            name="username"
+            id="username"
+            placeholder="Brukernavn"
+            required
+          />
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Passord"
+            required
+          />
+
+          <!-- Valgfrie felter, skjult som standard -->
+          <div id="optionalFields" style="display: none">
+            <input
+              type="text"
+              name="first_name"
+              id="first_name"
+              placeholder="Fornavn"
+            />
+            <input
+              type="text"
+              name="last_name"
+              id="last_name"
+              placeholder="Etternavn"
+            />
+            <textarea name="bio" id="bio" placeholder="Bio"></textarea>
+            <select name="gender" id="gender">
+              <option value="">Velg kjønn</option>
+              <option value="male">Mann</option>
+              <option value="female">Kvinne</option>
+              <option value="other">Annet</option>
+              <option value="noanswer">Ønsker ikke svare</option>
+            </select>
+            <input
+              type="url"
+              name="profile_picture_url"
+              id="profile_picture_url"
+              placeholder="Profilbilde URL"
+            />
+            <input type="text" name="role" id="role" placeholder="Rolle" />
+          </div>
+
+          <button
+            type="button"
+            class="button-secondary"
+            id="toggleFieldsButton"
+          >
+            Legg til flere detaljer
+          </button>
+          <button type="submit">Registrer</button>
+        </form>
+      </div>
+      <a href="../login/">Logg inn</a>
+    </main>
+    <footer></footer>
+  </body>
+</html>
