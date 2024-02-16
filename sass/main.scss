@@ -5,6 +5,11 @@
   font-family: "Roboto", sans-serif;
 }
 
+a {
+  text-decoration: underline;
+  color: #000;
+}
+
 /* REDIRECT */
 
 .redirect {
@@ -141,9 +146,10 @@
       }
       .button-secondary {
         @extend button;
-        background-color: #cfcfcf;
+        background-color: #cfcfcf00;
         border: 0px;
         color: #000;
+        text-decoration: underline;
         &:hover {
           background-color: #acacac;
           color: #fff;

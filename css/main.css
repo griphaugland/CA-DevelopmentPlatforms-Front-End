@@ -4,6 +4,10 @@
   box-sizing: border-box;
   font-family: "Roboto", sans-serif; }
 
+a {
+  text-decoration: underline;
+  color: #000; }
+
 /* REDIRECT */
 .redirect {
   min-height: 100vh;
@@ -116,9 +120,10 @@
           background-color: #fff;
           color: #000000; }
       .auth main form .button-secondary {
-        background-color: #cfcfcf;
+        background-color: #cfcfcf00;
         border: 0px;
-        color: #000; }
+        color: #000;
+        text-decoration: underline; }
         .auth main form .button-secondary:hover {
           background-color: #acacac;
           color: #fff; }

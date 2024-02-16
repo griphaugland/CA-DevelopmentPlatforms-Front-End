@@ -1,11 +1,16 @@
-const searchParams = new URLSearchParams(window.location.search);
-const user = JSON.parse(localStorage.getItem("user"));
+import "dotenv/config";
+import jwt from "jsonwebtoken";
 
-if (user) {
-  if (user.token) {
+if (localStorage.getItem("token")) {
+  const verifiedToken = jwt.verify(
+    localStorage.getItem("token"),
+    process.env.TOKEN_HASH_KEY
+  );
+  console.log(verifiedToken);
+  if (verifiedToken) {
     window.location.href = "./home";
   } else {
-    console.log("Token not valid");
+    console.log("Token not valid, please log in again");
     window.location.href = "./auth/login";
   }
 } else {
@@ -14,5 +19,3 @@ if (user) {
   }, 1500);
   console.log("No user");
 }
-
-function getParameters() {}
