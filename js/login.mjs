@@ -1,4 +1,4 @@
-import { url } from "./security.js";
+import { url } from "./security.mjs";
 
 async function logIn(email, password) {
   const req = {
