@@ -12,10 +12,21 @@
     <header></header>
     <main>
       <div class="auth-current">
-        <form action="" method="post">
-          <input type="text" name="username" placeholder="Email" />
-          <input type="password" name="password" placeholder="Passord" />
+        <form action="" id="login-form" method="post">
+          <input
+            type="text"
+            name="Email"
+            id="login-email"
+            placeholder="Email"
+          />
+          <input
+            type="password"
+            name="password"
+            id="login-password"
+            placeholder="Passord"
+          />
           <button type="submit">Logg inn</button>
+          <div id="login-error"></div>
         </form>
       </div>
       <a href="../register/">Registrer deg</a>

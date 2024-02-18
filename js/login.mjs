@@ -1,4 +1,5 @@
 import { url } from "./security.mjs";
+const feedback = document.getElementById("login-error");
 
 async function logIn(email, password) {
   const req = {
@@ -13,8 +14,20 @@ async function logIn(email, password) {
     body: JSON.stringify(req),
   });
   const data = await response.json();
-  console.log(data);
-  localStorage.setItem("token", data.accessToken);
+  feedback.innerText = data.message;
+  if (response.status === 200) {
+    localStorage.setItem("token", data.accessToken);
+    setTimeout(() => {
+      window.location.href = "../../home";
+    }, 1500);
+  }
 }
 
-logIn("test@test.no", "test");
+const form = document.getElementById("login-form");
+const emailInput = document.getElementById("login-email");
+const passwordInput = document.getElementById("login-password");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  logIn(emailInput.value, passwordInput.value);
+});

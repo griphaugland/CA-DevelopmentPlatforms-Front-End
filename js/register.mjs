@@ -1,7 +1,7 @@
 import { url } from "./security.mjs";
+const feedback = document.getElementById("register-error");
 
 async function register(
-  url,
   username,
   email,
   password,
@@ -30,6 +30,66 @@ async function register(
     },
     body: JSON.stringify(req),
   });
+  if (response.status === 500) {
+    feedback.innerText = "Something went wrong";
+  }
+  if (response.status === 400) {
+    feedback.innerText = "Invalid input";
+  }
+  if (response.status === 200) {
+    setTimeout(() => {
+      window.location.href = "../login";
+    }, 1500);
+  }
+  console.log(response);
   const data = await response.json();
-  console.log(data);
+  feedback.innerText = data.message;
 }
+const form = document.getElementById("register-form");
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const emailInput = document.getElementById("register-email");
+  const usernameInput = document.getElementById("register-username");
+  const passwordInput = document.getElementById("register-password");
+  const firstNameInput = document.getElementById("register-first_name");
+  const lastNameInput = document.getElementById("register-last_name");
+  const bioInput = document.getElementById("register-bio");
+  const genderInput = document.getElementById("register-gender");
+  const profilePictureInput = document.getElementById(
+    "register-profile_picture_url"
+  );
+
+  let firstNameValue = firstNameInput.value;
+  let lastNameValue = lastNameInput.value;
+  let bioValue = bioInput.value;
+  let genderValue = genderInput.value;
+  let profilePictureValue = profilePictureInput.value;
+
+  if (firstNameInput.value.length === 0) {
+    firstNameValue = null;
+  }
+  if (lastNameInput.value.length === 0) {
+    lastNameValue = null;
+  }
+  if (bioInput.value.length === 0) {
+    bioValue = null;
+  }
+  if (genderInput.value.length === 0) {
+    genderValue = null;
+  }
+  if (profilePictureInput.value.length === 0) {
+    profilePictureValue = null;
+  }
+  let roleValue = "user";
+  register(
+    usernameInput.value,
+    emailInput.value,
+    passwordInput.value,
+    firstNameValue,
+    lastNameValue,
+    bioValue,
+    genderValue,
+    profilePictureValue,
+    roleValue
+  );
+});

@@ -1,5 +1,3 @@
-import "dotenv/config";
-
 const toggleOptionalFieldsButton =
   document.getElementById("toggleFieldsButton");
 if (toggleOptionalFieldsButton) {
@@ -17,12 +15,8 @@ if (toggleOptionalFieldsButton) {
 }
 
 if (localStorage.getItem("token")) {
-  const verifiedToken = jwt.verify(
-    localStorage.getItem("token"),
-    process.env.TOKEN_HASH_KEY
-  );
-  console.log(verifiedToken);
-  if (verifiedToken) {
+  const token = localStorage.getItem("token");
+  if (token.length < 10) {
     window.location.href = "../../home";
   }
 }

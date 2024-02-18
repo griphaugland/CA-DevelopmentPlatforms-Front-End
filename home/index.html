@@ -6,6 +6,7 @@
     <title>KlarFerdigStopp Hjem</title>
     <link rel="stylesheet" href="../css/main.css" />
     <script src="../js/home.mjs" type="module"></script>
+    <script src="../js/content.mjs" type="module"></script>
   </head>
   <body class="home">
     <header>
@@ -14,9 +15,60 @@
           class="loader-image"
           src="../media/klarferdigstopplogo-loader.png"
         />
+        <button id="logout">Log out</button>
       </div>
     </header>
-    <main></main>
+    <main>
+      <div class="home-current">
+        <div class="my-addictions">
+          <h3 class="header addictions-header">
+            Mine avhengigheter
+            <div class="add-addiction">
+              <button id="add-addiction">Legg til avhengighet</button>
+            </div>
+          </h3>
+          <div id="addictions-content"></div>
+        </div>
+        <div class="home-header">
+          <h3 class="header">Brukere som har sluttet via KlarFerdigStopp:</h3>
+        </div>
+        <div id="home-content"></div>
+      </div>
+    </main>
     <footer></footer>
+    <!-- BEGIN: Modal -->
+    <div id="addiction-modal" style="display: none">
+      <div class="modal-content">
+        <form id="modal-form">
+          <span id="close-modal" class="close">&times;</span>
+          <label for="addiction-item">Lag en ny oversikt</label>
+          <select id="addiction-item" name="addiction-item">
+            <option value="" disabled selected>Velg kategori</option>
+            <option value="Røyk">Røyk</option>
+            <option value="Snus">Snus</option>
+            <option value="Pengespill">Pengespill</option>
+            <option value="Rusmidler">Rusmidler</option>
+            <option value="Alkohol">Alkohol</option>
+            <option value="item6">Annet (skriv din egen)</option>
+          </select>
+          <div class="avhengighet-annet" style="display: none">
+            <label for="avhengighet">Skriv inn din avhengighet</label>
+            <input type="text" id="avhengighet" name="avhengighet" />
+          </div>
+          <br />
+          <label for="description">Beskrivelse: (valgfri)</label>
+          <input type="text" id="description" name="description" />
+          <br />
+          <label for="savings"
+            >Hvor mye sparer du i måneden når du slutter?</label
+          >
+          <input type="number" id="savings" name="savings" />
+          <br />
+          <button type="submit">Submit</button>
+          <div id="addiction-feedback"></div>
+        </form>
+      </div>
+    </div>
+    <!-- END: Modal -->
   </body>
 </html>
