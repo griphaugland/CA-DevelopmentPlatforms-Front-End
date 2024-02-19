@@ -1,7 +1,7 @@
 {
   "name": "ca-developmentplatforms-front-end",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "",
   "scripts": {
     "build": "node-sass sass/main.scss css/main.css",
     "start": "node-sass --watch sass/main.scss css/main.css",
