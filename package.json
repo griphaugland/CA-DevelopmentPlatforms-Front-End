@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "node-sass sass/main.scss css/main.css",
     "start": "node index.js",
     "dev": "node-sass --watch sass/main.scss css/main.css"
   },
